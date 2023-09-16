@@ -1,0 +1,39 @@
+server.port: 8081
+
+eureka:
+  instance.hostname: localhost
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url.defaultZone: http://localhost:8070/eureka
+
+spring:
+  cloud.gateway:
+    globalcors:
+      add-to-simple-url-handler-mapping: true
+      corsConfigurations:
+        '[/**]':
+          allowedOrigins: '*'
+          allowedHeaders: '*'
+          allowedMethods: '*'
+    default-filters:
+      - TokenRelay=
+      - RemoveRequestHeader=Cookie
+    discovery.locator:
+      enabled: true
+      lower-case-service-id: true
+
+  security.oauth2:
+    resourceserver.jwt.issuer-uri: http://localhost:8080/realms/master
+    client:
+      provider:
+        keycloak:
+          issuer-uri: http://localhost:8080/realms/master
+          user-name-attribute: preferred_username
+      registration:
+        keycloak:
+          provider: keycloak
+          client-id: uzum-
+          client-secret: ym5chILYe9lR2TQb5AuFCbt6uWrEZOCM
+          authorization-grant-type: authorization_code
+          scope: openid

@@ -1,0 +1,17 @@
+
+server.port: 0
+
+eureka:
+  instance.prefer-ip-address: true
+  client:
+    service-url.defaultZone: http://localhost:8070/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+spring.security.oauth2.resourceserver.jwt:
+  issuer-uri: http://localhost:8080/realms/master
+  jwk-set-uri: ${spring.security.oauth2.resourceserver.jwt.issuer-uri}/protocol/openid-connect/certs
+
+jwt.auth.converter:
+  resource-id: uzum
+  principal-attribute: preferred_username

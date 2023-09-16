@@ -1,0 +1,9 @@
+rootProject.name = 'keyclaok-demo'
+
+include(":auth-service")
+include(":auth-service-legacy")
+include(":gateway")
+include(":config")
+include(":eureka")
+include(":merchant")
+
