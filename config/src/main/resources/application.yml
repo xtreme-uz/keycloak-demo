@@ -4,4 +4,4 @@ server.port: 8071
 spring:
   application.name: config-server
   profiles.active: native
-  cloud.config.server.native.search-locations: C:\\Users\\User\\IdeaProjects\\keyclaok-demo\\demo-config
+  cloud.config.server.native.search-locations: /home/xtreme/IdeaProjects/keycloak-demo/demo-config

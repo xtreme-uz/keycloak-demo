@@ -21,6 +21,8 @@ public class KeycloakClient {
     private String keyCloakUrl;
     @Value("${keycloak.resource}")
     private String clientId;
+    @Value("${keycloak.credentials.secret}")
+    private String clientSecret;
     @Value("${keycloak.realm}")
     private String realm;
 
@@ -35,7 +37,7 @@ public class KeycloakClient {
         parameters.add("password",request.password());
         parameters.add("grant_type", "password");
         parameters.add("client_id", clientId);
-        parameters.add("client_secret", "ym5chILYe9lR2TQb5AuFCbt6uWrEZOCM");
+        parameters.add("client_secret", clientSecret);
 
         HttpEntity<MultiValueMap<String, String>> entity = new HttpEntity<>(parameters, headers);
 

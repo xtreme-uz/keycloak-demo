@@ -14,5 +14,7 @@ keycloak:
   auth-server-url: http://localhost:8080
   realm: master
   resource: uzum
-  public-client: true
+  public-client: false
   use-resource-role-mappings: true
+  credentials:
+    secret: 'Zw5qLnjk1kR8lUXSbiHi9rILAYILKJbi'
